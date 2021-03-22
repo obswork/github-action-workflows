@@ -29,6 +29,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo me echo
-        if: github.ref == 'refs/heads/develop'|| needs.pull_request_trigger.outputs.triggered == 'true'
+        if: needs.pull_request_trigger.outputs.triggered == 'true'
         run: |
           echo 'IT WERKED!'
+
+  job_level_test:
+    name: Test Job Level Triggers
+    needs: [pull_request_trigger]
+    if: needs.pull_request_trigger.outputs.triggered == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job level test
+        run: |
+          echo 'Job level test success'
+
