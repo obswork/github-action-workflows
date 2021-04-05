@@ -1,12 +1,7 @@
 name: Build, Test, Push
 on:
-  push:
-    branches: [main, develop, beta/*]
   issue_comment:
     types: [created]
-  pull_request:
-  workflow_dispatch:
-    branches: [main, develop]
   
 jobs:
   pull_request_trigger:
