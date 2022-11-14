@@ -5,6 +5,9 @@ on:
       git_sha:
         description: The full-length sha of a git commit.
         required: false
+
+env:
+  foo: bar
   
 jobs:
   echo:
